@@ -12,8 +12,8 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:3000/",
-      "https://www.chessplay.live/",
+      "http://localhost:3000",
+      "https://www.chessplay.live",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: [
@@ -33,8 +33,8 @@ const appServer = http.createServer(app);
 const io = socketIO(appServer, {
   cors: {
     origin: [
-      "http://localhost:3000/",
-      "https://www.chessplay.live/",
+      "http://localhost:3000",
+      "https://www.chessplay.live",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: [
