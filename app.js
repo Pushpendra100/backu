@@ -16,12 +16,8 @@ app.use(
       "https://www.chessplay.live",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    allowedHeaders: [
-      "Origin",
-      "X-Requested",
-      "Content-Type",
-      "Accept Authorization",
-    ],
+    allowedHeaders: ["Content-Type"],
+    credentials: true
   })
 ); // Enable CORS for Express.js
 app.use("/api/v1/match", matchRouter);
@@ -37,14 +33,14 @@ const io = socketIO(appServer, {
       "https://www.chessplay.live",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    allowedHeaders: [
-      "Origin",
-      "X-Requested",
-      "Content-Type",
-      "Accept Authorization",
-    ],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
   },
 });
+
+// "Origin",
+// "X-Requested",
+// "Accept Authorization",
 
 // Socket.io event listeners
 io.on("connection", (socket) => {
