@@ -10,10 +10,10 @@ const AppError = require("./utils/AppError");
 const app = express();
 app.use(
   cors({
+    
     origin: ["http://localhost:3000", "https://www.chessplay.live"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
+    allowedHeaders: "Content-Type",
   })
 ); // Enable CORS for Express.js
 app.use(express.json());
@@ -27,8 +27,7 @@ const io = socketIO(appServer, {
   cors: {
     origin: ["http://localhost:3000", "https://www.chessplay.live"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
+    allowedHeaders: "Content-Type",
   },
 });
 
