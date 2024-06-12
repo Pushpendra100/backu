@@ -10,7 +10,7 @@ const AppError = require('./utils/AppError');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000/', 'https://chess-play-seven.vercel.app/'],
+    origin: ['http://localhost:3000/', 'https://chess-play-seven.vercel.app/', 'https://www.chessplay.live/'],
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
 })); // Enable CORS for Express.js
 app.use("/api/v1/match",matchRouter);
@@ -21,7 +21,7 @@ const appServer = http.createServer(app);
 // Create a socket.io server and configure CORS settings
 const io = socketIO(appServer, {
     cors: {
-        origin: ['http://localhost:3000/', 'https://chess-play-seven.vercel.app/'],
+        origin: ['http://localhost:3000/', 'https://chess-play-seven.vercel.app/', 'https://www.chessplay.live/'],
         methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
     },
 });
