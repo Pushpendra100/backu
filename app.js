@@ -13,7 +13,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000/",
-      "https://chess-play-seven.vercel.app/",
       "https://www.chessplay.live/",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
@@ -35,7 +34,6 @@ const io = socketIO(appServer, {
   cors: {
     origin: [
       "http://localhost:3000/",
-      "https://chess-play-seven.vercel.app/",
       "https://www.chessplay.live/",
     ],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
