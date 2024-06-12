@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(cors({
     origin: 'http://localhost:3000/',
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
-    credentials: true,
 })); // Enable CORS for Express.js
 app.use("/api/v1/match",matchRouter);
 
@@ -24,7 +23,6 @@ const io = socketIO(appServer, {
     cors: {
         origin: 'http://localhost:3000/',
         methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
-        credentials: true,
     },
 });
 
