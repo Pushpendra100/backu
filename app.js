@@ -8,18 +8,15 @@ const AppError = require("./utils/AppError");
 
 // Create an instance of Express application
 const app = express();
-app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://www.chessplay.live",
-    ],
+    origin: ["http://localhost:3000", "https://www.chessplay.live"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
-    credentials: true
+    credentials: true,
   })
 ); // Enable CORS for Express.js
+app.use(express.json());
 app.use("/api/v1/match", matchRouter);
 
 // Create an HTTP server using the Express app
@@ -28,10 +25,7 @@ const appServer = http.createServer(app);
 // Create a socket.io server and configure CORS settings
 const io = socketIO(appServer, {
   cors: {
-    origin: [
-      "http://localhost:3000",
-      "https://www.chessplay.live",
-    ],
+    origin: ["http://localhost:3000", "https://www.chessplay.live"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
     credentials: true,
