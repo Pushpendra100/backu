@@ -9,7 +9,11 @@ const AppError = require('./utils/AppError');
 // Create an instance of Express application
 const app = express();
 app.use(express.json());
-app.use(cors()); // Enable CORS for Express.js
+app.use(cors({
+    origin: 'http://localhost:3000/',
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+    credentials: true,
+})); // Enable CORS for Express.js
 app.use("/api/v1/match",matchRouter);
 
 // Create an HTTP server using the Express app
@@ -18,8 +22,9 @@ const appServer = http.createServer(app);
 // Create a socket.io server and configure CORS settings
 const io = socketIO(appServer, {
     cors: {
-        origin: '*', 
-        methods: ['GET', 'POST'],
+        origin: 'http://localhost:3000/',
+        methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+        credentials: true,
     },
 });
 
