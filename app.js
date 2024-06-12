@@ -27,6 +27,7 @@ const io = socketIO(appServer, {
   cors: {
     origin: ["http://localhost:3000", "localhost", "https://www.chessplay.live"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+    allowedHeaders: "Content-Type",
     credentials: true
   },
 });
